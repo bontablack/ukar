@@ -118,9 +118,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (eventDate && eventTitle) {
       events.push({ date: eventDate, title: eventTitle, color: eventColor });
+      saveEventsToLocalStorage(events);
       renderCalendar();
       eventDateInput.value = "";
       eventTitleInput.value = "";
     }
   });
+
+  // Load events from local storage on page load
+  function loadEventsFromLocalStorage() {
+    const storedEvents = localStorage.getItem("events");
+    if (storedEvents) {
+      events = JSON.parse(storedEvents);
+    }
+  }
+
+  // Save events to local storage
+  function saveEventsToLocalStorage(events) {
+    localStorage.setItem("events", JSON.stringify(events));
+  }
+
+  loadEventsFromLocalStorage();
+  renderCalendar();
 });
+
