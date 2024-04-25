@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar App</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Login</h2>
+      <label for="userType">Select User Type:</label>
+      <select id="userType">
+        <option value="visitor">Visitor</option>
+        <option value="editor">Editor</option>
+      </select>
+      <div id="passwordInput" style="display:none;">
+        <label for="password">Enter Password:</label>
+        <input type="password" id="password">
+      </div>
+      <button id="loginButton">Login</button>
+    </div>
+  </div>
+
+  <div id="calendarApp" class="calendar-app hidden">
+    <div class="calendar">
+      <div class="header">
+        <button id="prevMonth">&lt;</button>
+        <h2 id="currentMonth"></h2>
+        <button id="nextMonth">&gt;</button>
+      </div>
+      <div class="days"></div>
+    </div>
+
+    <div class="event-form">
+      <h3>Add Event</h3>
+      <input type="date" id="eventDate">
+      <input type="text" id="eventTitle" placeholder="Event Title">
+      <select id="eventColor">
+        <option value="red">Red</option>
+        <option value="lightblue">Light Blue</option>
+        <option value="lightgreen">Light Green</option>
+        <option value="yellow">Yellow</option>
+      </select>
+      <button id="addEvent">Add</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
